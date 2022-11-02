@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { db } from '../firebase'
-import { ref, set, child, get, orderByChild, equalTo, query, onValue, onChildAdded } from "firebase/database";
+import { ref, set, onChildAdded } from "firebase/database";
 import { useEffect } from 'react';
 import { useState } from 'react';
 
