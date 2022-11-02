@@ -1,38 +1,338 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  padding: 10px 20px;
+}
+
+.header a {
+  color: #fff;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.login-navlink {
+  color: #FAD074 !important;
+  border: 1px solid #FAD074;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-right: 20px;
+  transition: .5s;
+}
+
+.login-navlink:hover {
+  color: #000 !important;
+  background-color: #FAD074;
+}
+
+.signup-navlink {
+  color: #000 !important;
+  border: 1px solid #FAD074;
+  background-color: #FAD074;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-right: 20px;
+  transition: .5s;
+}
+
+.signup-navlink:hover {
+  color: #FAD074 !important;
+  background-color: #000;
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-color: #0000008a;
+  background-image: url('./assets/img/banner-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: darken;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.banner h1 {
+  color: #FAD074;
+  font-weight: 800;
+}
+
+.banner h4 {
+  color: #fff;
+  font-weight: normal;
+}
+
+.link-input {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.link-input input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.link-input button {
+  padding: 10px 20px;
+  background-color: #FAD074;
+  color: #000;
+  margin-left: 10px;
+  border-radius: 25px;
+  border: 1px solid #FAD074;
+  transition: .5s;
+}
+
+.link-input a:hover {
+  background: none;
+  color: #FAD074;
+}
+
+.signup {
+  height: 100vh;
+}
+
+.signup-img {
+  height: 100%;
+}
+
+.signup-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.signup-input {
+  width: 100%;
+  position: relative;
+}
+
+.signup-input input {
+  width: 100%;
+  /* border: 1.5px solid #000; */
+  border: none;
+  outline: none;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #facf7450;
+}
+
+.signup .form-label {
+  margin-bottom: 5px;
+}
+
+.hide-password {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: gray;
+}
+
+.signup-submit {
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #FAD074;
+  display: block;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+
+.signup-left {
+  overflow-y: scroll;
+  padding-top: 50px;
+}
+
+.signup-left::-webkit-scrollbar {
+  display: none;
+}
+
+.dashboard-header {
+  position: inherit;
+}
+
+.dashboard-header .header-left a {
+ color: #000;
+}
+
+.logout-navlink {
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #000 !important;
+  background-color: #FAD074;
+  border: none;
+  outline: none;
+}
+
+.dashboard-header .header-left a.active {
+  color: #FAD074 !important;
+}
+
+.link-item {
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link-item-left {
+  flex: 1;
+}
+
+.link-item p {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.link-item span {
+  font-size: .8rem;
+  color: gray;
+}
+
+.link-item-right {
+  color: #fff;
+  font-size: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.new-link-btn {
+  background-color: #FAD074;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
+.close-modal {
+  background-color: #FAD074;
+  padding: 0 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 40px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-link-submit {
+  background-color: #FAD074;
+  padding: 0 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: 40px !important;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-link-input label {
+  margin-bottom: 0;
+}
+
+.new-link-input input {
+  display: block;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: #facf7450;
+  width: 100%;
+}
+
+.preview {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(252,231,184,1) 0%, rgba(250,208,116,1) 100%, rgba(250,208,116,1) 100%);
+}
+
+.preview-links a {
+  display: block;
+  width: 100%;
+  color: #fff;
+  background-color: #000;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+  border-radius: 30px;
+}
+
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  margin: 8px;
+  border: 8px solid #000;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #000 transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
