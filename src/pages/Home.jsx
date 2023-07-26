@@ -5,7 +5,6 @@ import { AiOutlineCheckCircle, AiOutlineFieldTime, AiOutlineGoogle, AiOutlineIns
 import { BsClipboardData, BsShieldCheck } from 'react-icons/bs'
 import { RiUserHeartLine } from 'react-icons/ri'
 import { FaFacebookF } from 'react-icons/fa'
-import FadeIn from "react-fade-in/lib/FadeIn"
 import Footer from "../components/Footer"
 import HomeHeader from "./HomeHeader"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
@@ -38,13 +37,13 @@ const Home = () => {
         <HomeHeader />
 
         <div className="banner">
-            <FadeIn className="container" transitionDuration={1000}>
+            <div className="container">
                 <h1>Streamline Your Practice</h1>
                 <h4>A comprehensive solution for managing your <br /> patients and appointments more efficiently.</h4>
                 <div className="d-flex flex-wrap mt-4">
                     <Link to="signup" className="primary-btn me-3 mt-2">Get Started</Link>
                 </div>
-            </FadeIn>
+            </div>
         </div>
 
         <section className="my-5">
