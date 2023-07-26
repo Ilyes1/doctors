@@ -1,0 +1,37 @@
+@media (max-width: 850px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .dashboard-right {
+        margin-left: 0;
+    }
+    .dash-header-navlink, .dash-profile-link {
+        display: none;
+    }
+    .dash-menu-toggle {
+        display: block !important;
+    }
+}
+
+@media (min-width: 701px) {
+    .mobile-header {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        background-color: #fff;
+        position: relative;
+        border-bottom: 1px solid #cecece;
+    }
+    .header-left a {
+        color: #000;
+    }
+    .header-right {
+        display: none;
+    }
+    .header .menu-toggle {
+        display: block;
+    }
+}

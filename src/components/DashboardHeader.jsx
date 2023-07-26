@@ -1,28 +1,49 @@
-import React from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
-import { auth } from '../firebase'
-import { signOut, getAuth } from "firebase/auth";
+import { child, get, ref } from 'firebase/database'
+import { doc, getDoc } from 'firebase/firestore'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { db, dbs } from '../firebase'
 
 const DashboardHeader = () => {
 
-    const auth = getAuth()
-    const navigate = useNavigate()
+    const [name, setName] = useState({
+        fName: '',
+        lName: ''
+    })
 
-    const logout = () => {
-        signOut(auth).then(() => {
-            navigate('/')
+    const userId = localStorage.getItem('user')
+
+    var date = new Date().getHours()
+
+    useEffect(() => {
+        get(child(ref(dbs, 'users'), userId))
+        .then((userDoc) => {
+            setName({
+                fName: userDoc.val().f_name,
+                lName: userDoc.val().l_name,
+            })
         })
-    }
-
+        .catch((err) => {
+            console.log(err)
+        })
+    }, [])
+    
   return (
-    <div className='header dashboard-header shadow'>
-        <div className="header-left d-flex align-items-center">
-            <Link to={'/dashboard/links'}><h1 className='mb-0'>LOGO</h1></Link>
-            <NavLink to={'links'} className='ms-5' activeClassName='active'>Links</NavLink>
-            <NavLink to={'analytics'} className='ms-4' activeClassName='active'>Analytics</NavLink>
+    <div className='dash-header'>
+        <div className="dash-header-left">
+            <h2>Good {date < 13 ? 'Morning' : date < 17 ? 'After noon' : 'Evening'} {name.fName}!</h2>
         </div>
-        <div className="header-right">
-            <button className='logout-navlink' onClick={logout}>Logout</button>
+        <div className="dash-header-right">
+            <Link to={'/help'} className='dash-header-navlink'>
+                <img src="../../assets/icons/help.png" alt="" />
+            </Link>
+            <Link to={'/dashboard/notifications'} className='dash-header-navlink'>
+                <img src="../../assets/icons/notifications.png" alt="" />
+            </Link>
+            <Link to={'/dashboard/profile'} className='dash-profile-link'>
+                <img src="../../assets/icons/profile.png" alt="" />
+                Dr. {name.fName} {name.lName}
+            </Link>
         </div>
     </div>
   )

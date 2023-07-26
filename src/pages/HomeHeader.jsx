@@ -1,8 +1,8 @@
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const Header = () => {
+const HomeHeader = () => {
 
   const [header, setHeader] = useState(false)
   const [link, setLink] = useState(false)
@@ -26,23 +26,22 @@ const Header = () => {
 
   return (
     <>
-      <div className='header'>
+      <div className='header home-header'>
           <div className="header-left">
-              <Link to={'/'} className='header-logo'>
-                <img src="../../assets/img/logo.svg" alt="" />
-              </Link>
+                <Link to={'/'} className='header-logo'>
+                    <img src="../../assets/img/logo.svg" alt="" />
+                </Link>
           </div>
           <div className="header-right">
-            <Link to={'/'} className='header-navlink'>Home</Link>
             <Link to={'/about'} className='header-navlink'>About</Link>
             <Link to={'/contact'} className='header-navlink'>Contact</Link>
-            <Link to={'/pricing'} className='header-navlink'>Pricing</Link>
+            <a href={'#pricing'} className='header-navlink'>Pricing</a>
             {
               link === true ? (
                 <Link to={'/dashboard/panel'} className='header-navlink'>Dashboard</Link>
               ) : (
                 <>
-                  <Link to={'/login'} className='signup-navlink'>Login</Link>
+                  <Link to={'/login'} className='login-navlink'>Login</Link>
                   <Link to={'/signup'} className='signup-navlink'>Signup</Link>
                 </>
               )
@@ -54,10 +53,9 @@ const Header = () => {
           </div>
       </div>
       <div className={`mobile-header ${header && 'active'}`}>
-        <Link to={'/'} className='mobile-header-navlink'>Home</Link>
         <Link to={'/about'} className='mobile-header-navlink'>About</Link>
         <Link to={'/contact'} className='mobile-header-navlink'>Contact</Link>
-        <Link to={'/pricing'} className='mobile-header-navlink'>Pricing</Link>
+        <a href="#pricing" className='mobile-header-navlink'>Pricing</a>
         {
           link === true ? (
             <Link to={'/dashboard/panel'} className='mobile-header-navlink'>Dashboard</Link>
@@ -73,4 +71,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default HomeHeader
